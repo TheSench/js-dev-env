@@ -8,12 +8,8 @@ import compression from 'compression';
 const port = 3000;
 const app = express();
 
-app.use(compression());
 app.use(express.static('dist'));
-
-app.get('/', function requestHandler(req, res) {
-  res.sendFile(path.join(__dirname, '../dist/index.html'));
-});
+app.use(compression());
 
 app.get('/users', function(req, res) {
   // Hard coding for simplicity. Pretend this hits a real database
@@ -24,10 +20,14 @@ app.get('/users', function(req, res) {
   ]);
 });
 
+app.get('*', function requestHandler(req, res) {
+  res.sendFile(path.join(__dirname, '../dist/index.html'));
+});
+
 app.listen(port, function startServer(err) {
   if (err) {
     console.log(err);
   } else {
-    open('http://localhost:' + port);
+    open(`http://localhost:${port}`);
   }
 });
