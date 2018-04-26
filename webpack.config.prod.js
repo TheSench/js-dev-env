@@ -2,6 +2,7 @@ import CleanWebpackPlugin from 'clean-webpack-plugin';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 export default {
   mode: "production",
@@ -40,6 +41,12 @@ export default {
     filename: '[name].[chunkhash].js'
   },
   plugins: [
+    // Generate an external css file with a hash in the filename
+    new MiniCssExtractPlugin({
+      chunkFilename: "[id].css",
+      filename: "[name].[contenthash].css",
+    }),
+
     // Clean the build folder before building
     new CleanWebpackPlugin(['dist']),
 
@@ -59,12 +66,27 @@ export default {
         minifyURLs: true
       },
       inject: true,
+      
+      // Properties you define here are available in index.html
+      // using htmlWebpackPlugin.options.varName
+
+      //trackJSToken: 'INSERT YOUR TOKEN HERE'
     }),
   ],
   module: {
     rules: [
-      {test: /\.js$/, exclude: /node_modules/, loaders: ['babel-loader']},
-      {test: /\.css$/, loaders: ['style-loader','css-loader']}
+      {
+        test: /\.js$/, 
+        exclude: /node_modules/, 
+        loaders: ['babel-loader']
+      },
+      {
+        test: /\.css$/, 
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader"
+        ]
+      }
     ]
   }
 };
