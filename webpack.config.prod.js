@@ -1,3 +1,4 @@
+import CleanWebpackPlugin from 'clean-webpack-plugin';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
@@ -39,6 +40,8 @@ export default {
     filename: '[name].[chunkhash].js'
   },
   plugins: [
+    // Clean the build folder before building
+    new CleanWebpackPlugin(['dist']),
 
     // Create HTML file that includes reference to bundled JS.
     new HtmlWebpackPlugin({
