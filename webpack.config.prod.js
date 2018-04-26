@@ -9,7 +9,7 @@ export default {
     noInfo: false,
   },
   entry: {
-    //vendor: path.resolve(__dirname, 'src/vendor'),
+    vendor: path.resolve(__dirname, 'src/vendor'),
     main: path.resolve(__dirname, 'src/index')
   },
   optimization: {
@@ -25,15 +25,25 @@ export default {
           keep_fnames: true //
         }
       })
-    ]
+    ],
+    splitChunks: {
+      cacheGroups: {
+          vendors: {
+              test: /[\\/]node_modules[\\/]/,
+              name: "vendors",
+              chunks: "all",
+          }
+      }
+    }
   },
   target: 'web',
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: '[name].[chunkhash].js'
   },
   plugins: [
+
     // Create HTML file that includes reference to bundled JS.
     new HtmlWebpackPlugin({
       template: 'src/index.html',
