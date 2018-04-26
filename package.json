@@ -28,6 +28,7 @@
     "whatwg-fetch": "^2.0.4"
   },
   "devDependencies": {
+    "autoprefixer": "^8.3.0",
     "babel-cli": "6.26.0",
     "babel-core": "6.26.0",
     "babel-loader": "7.1.4",
@@ -52,11 +53,15 @@
     "mini-css-extract-plugin": "^0.4.0",
     "mocha": "5.1.0",
     "nock": "9.2.5",
+    "node-sass": "^4.9.0",
     "npm-run-all": "4.1.2",
     "nsp": "3.2.1",
     "numeral": "2.0.6",
     "open": "0.0.5",
+    "postcss-loader": "^2.1.4",
+    "precss": "^3.1.2",
     "rimraf": "2.6.2",
+    "sass-loader": "^7.0.1",
     "style-loader": "0.20.3",
     "surge": "0.20.1",
     "webpack": "4.5.0",

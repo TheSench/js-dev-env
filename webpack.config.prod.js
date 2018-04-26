@@ -2,10 +2,10 @@ import CleanWebpackPlugin from 'clean-webpack-plugin';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 export default {
-  mode: "production",
+  mode: 'production',
   devtool: 'source-map',
   devServer: {
     noInfo: false,
@@ -28,8 +28,8 @@ export default {
       cacheGroups: {
           vendors: {
               test: /[\\/]node_modules[\\/]/,
-              name: "vendors",
-              chunks: "all",
+              name: 'vendors',
+              chunks: 'all',
           }
       }
     }
@@ -43,8 +43,8 @@ export default {
   plugins: [
     // Generate an external css file with a hash in the filename
     new MiniCssExtractPlugin({
-      chunkFilename: "[id].css",
-      filename: "[name].[contenthash].css",
+      chunkFilename: '[id].[hash].css',
+      filename: '[name].[hash].css',
     }),
 
     // Clean the build folder before building
@@ -66,11 +66,10 @@ export default {
         minifyURLs: true
       },
       inject: true,
-      
+
       // Properties you define here are available in index.html
       // using htmlWebpackPlugin.options.varName
-
-      //trackJSToken: 'INSERT YOUR TOKEN HERE'
+      /*trackJSToken: 'INSERT YOUR TOKEN HERE'*/
     }),
   ],
   module: {
@@ -84,8 +83,10 @@ export default {
         test: /\.css$/, 
         use: [
           MiniCssExtractPlugin.loader,
-          "css-loader"
-        ]
+          'css-loader',
+          'sass-loader',
+          'postcss-loader'
+        ],
       }
     ]
   }
