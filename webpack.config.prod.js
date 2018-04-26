@@ -15,14 +15,10 @@ export default {
   optimization: {
     minimizer: [
       new UglifyJsPlugin({
+        // https://github.com/mishoo/UglifyJS2/tree/harmony#minify-options
         uglifyOptions: {
-          beautify: false,
-          compress: true,
-          comments: false,
-          mangle: false,
-          toplevel: false,
-          keep_classnames: true, // <-- doesn't exist, I guess. It's in harmony branch
-          keep_fnames: true //
+          keep_classnames: true,
+          keep_fnames: true,
         }
       })
     ],
