@@ -10,6 +10,7 @@
 | babel-loader                | Adds Babel support to Webpack                                                                             |
 | babel-preset-env            | Babel preset for running all the latest standardized JavaScript features                                  |
 | babel-register              | Register Babel to transpile our Mocha tests                                                               |
+| chai                        | Assertion library for use with Mocha                                                                      |
 | cheerio                     | Supports querying DOM with jQuery like syntax - Useful in testing and build process for HTML manipulation |
 | clean-webpack-plugin        | Automatically clean dist folder before building                                                           |
 | compression                 | Compresses content (gzip or deflate) before it is served                                                  |
@@ -18,7 +19,6 @@
 | eslint                      | Lints JavaScript                                                                                          |
 | eslint-plugin-import        | Advanced linting of ES6 imports                                                                           |
 | eslint-watch                | Add watch functionality to ESLint                                                                         |
-| expect                      | Assertion library for use with Mocha                                                                      |
 | express                     | Serves development and production builds                                                                  |
 | file-loader                 | Adds file loading support to Webpack                                                                      |
 | html-webpack-plugin         | Auto-inserts bundle references into HTML files                                                            |
