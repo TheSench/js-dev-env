@@ -26,8 +26,8 @@ export default {
   module: {
     rules: [
       {
-        test: /\.js$/, 
-        exclude: /node_modules/, 
+        test: /\.js$/,
+        exclude: /node_modules/,
         loaders: ['babel-loader']
       },
       {
@@ -38,6 +38,32 @@ export default {
           'sass-loader',
           'postcss-loader'
         ]
+      },
+      {
+        test: /\.(jpe?g|png|gif)$/,
+        loader: 'url-loader',
+        options: {
+          // Images larger than 10 KB won’t be inlined
+          limit: 10 * 1024
+        }
+      },
+      {
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              // Images larger than 10 KB won’t be inlined
+              limit: 10 * 1024
+            }
+          },
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              bypassOnDebug: true,
+            },
+          },
+        ],
       }
     ]
   }

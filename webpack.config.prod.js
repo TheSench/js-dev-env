@@ -1,4 +1,3 @@
-import CleanWebpackPlugin from 'clean-webpack-plugin';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
@@ -47,9 +46,6 @@ export default {
       filename: '[name].[hash].css',
     }),
 
-    // Clean the build folder before building
-    new CleanWebpackPlugin(['dist']),
-
     // Create HTML file that includes reference to bundled JS.
     new HtmlWebpackPlugin({
       template: 'src/index.html',
@@ -75,12 +71,12 @@ export default {
   module: {
     rules: [
       {
-        test: /\.js$/, 
-        exclude: /node_modules/, 
+        test: /\.js$/,
+        exclude: /node_modules/,
         loaders: ['babel-loader']
       },
       {
-        test: /\.css$/, 
+        test: /\.css$/,
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',

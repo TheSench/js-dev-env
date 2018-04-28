@@ -20,7 +20,9 @@
 | eslint-watch                | Add watch functionality to ESLint                                                                         |
 | expect                      | Assertion library for use with Mocha                                                                      |
 | express                     | Serves development and production builds                                                                  |
+| file-loader                 | Adds file loading support to Webpack                                                                      |
 | html-webpack-plugin         | Auto-inserts bundle references into HTML files                                                            |
+| image-webpack-loader        | Compress images                                                                                           |
 | jsdom                       | In-memory DOM for testing                                                                                 |
 | json-schema-faker           | Provides fake JSON data from JSON schema files                                                            |
 | json-server                 | Provides fake JSON REST API                                                                               |
@@ -39,6 +41,7 @@
 | sass-loader                 | Add SASS support to Webpack                                                                               |
 | style-loader                | Add Style support to Webpack                                                                              |
 | surge                       | Publish web apps to a CDN                                                                                 |
+| url-loader                  | Convert small files to Data URIs                                                                          |
 | webpack                     | Bundler with plugin system and integrated development server                                              |
 | webpack-dev-middleware      | Adds middleware support to webpack                                                                        |
 | webpack-hot-middleware      | Adds hot reloading to webpack                                                                             |
